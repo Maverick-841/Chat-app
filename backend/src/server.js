@@ -34,5 +34,7 @@ if (ENV.NODE_ENV === "production") {
   });
 }
 
+connectDB();
+
 // For Vercel compatibility
 export default app;
