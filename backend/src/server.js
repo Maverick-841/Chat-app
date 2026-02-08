@@ -19,7 +19,7 @@ const __dirname = path.resolve();
 const PORT = ENV.PORT || 3000;
 
 app.use(express.json({ limit: "5mb" })); // req.body
-app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
+app.use(cors({ origin: ENV.CLIENT_URL || true, credentials: true }));
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
@@ -34,7 +34,5 @@ if (ENV.NODE_ENV === "production") {
   });
 }
 
-server.listen(PORT, () => {
-  console.log("Server running on port: " + PORT);
-  connectDB();
-});
+// For Vercel compatibility
+export default app;
