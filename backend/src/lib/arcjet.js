@@ -2,7 +2,7 @@ import arcjet, { shield, detectBot, slidingWindow } from "@arcjet/node";
 
 import { ENV } from "./env.js";
 
-const aj = arcjet({
+const aj = ENV.ARCJET_KEY ? arcjet({
   key: ENV.ARCJET_KEY,
   rules: [
     // Shield protects your app from common attacks e.g. SQL injection
@@ -26,6 +26,6 @@ const aj = arcjet({
       interval: 60,
     }),
   ],
-});
+}) : null;
 
 export default aj;
