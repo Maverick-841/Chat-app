@@ -12,9 +12,7 @@ export const connectDB = async () => {
   } catch (error) {
     console.error("Error connection to MONGODB:");
     console.error("- Message:", error.message);
-    console.error("- Code:", error.code);
-    console.error("- Name:", error.name);
     if (error.reason) console.error("- Reason:", error.reason);
-    process.exit(1);
+    // Don't exit process in serverless environment
   }
 };
