@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "outputDirectory": "build",
     "rewrites": [
         {
             "source": "/api/(.*)",
@@ -8,7 +7,7 @@
         },
         {
             "source": "/(.*)",
-            "destination": "/$1"
+            "destination": "/frontend/dist/$1"
         }
     ],
     "builds": [
@@ -20,7 +19,7 @@
             "src": "package.json",
             "use": "@vercel/static-build",
             "config": {
-                "distDir": "build"
+                "distDir": "frontend/dist"
             }
         }
     ]
